@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Gathering todos from an API of a single employee"""
+
 import sys
 import requests
 
