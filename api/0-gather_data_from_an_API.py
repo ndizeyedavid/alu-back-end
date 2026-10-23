@@ -1,27 +1,44 @@
+
 #!/usr/bin/python3
-"""Gathering todos from an API of a single employee"""
+"""Gather TODO list progress for a single employee."""
 
 import sys
+
 import requests
 
-#if len(sys.argv) < 1:
-#    print("Please provide atleast 1 argument")
 
-employeeId = int(sys.argv[1])
+def main():
+    """Display an employee's completed TODO tasks."""
+    employee_id = int(sys.argv[1])
 
-response = requests.get(f"https://jsonplaceholder.typicode.com/users/{employeeId}")
+    response = requests.get(
+        f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    )
 
-if response.status_code == 200:
-    userData = response.json()
-    todos_response = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={employeeId}")
+    if response.status_code == 200:
+        user_data = response.json()
+        todos_response = requests.get(
+            "https://jsonplaceholder.typicode.com/todos",
+            params={"userId": employee_id}
+        )
 
-    if todos_response.status_code == 200:
-        todos = todos_response.json()
-        completedTasks = []
-        for task in todos:
-            if task["completed"]: completedTasks.append(task)
-                
-        print(f"Employee {userData['name']} is done with tasks({len(completedTasks)}/{len(todos)}):")
+        if todos_response.status_code == 200:
+            todos = todos_response.json()
+            completed_tasks = [
+                task for task in todos if task.get("completed")
+            ]
 
-        for completedTask in completedTasks:
-            print(f"\t{completedTask['title']}")
+            print(
+                "Employee {} is done with tasks({}/{}):".format(
+                    user_data.get("name"),
+                    len(completed_tasks),
+                    len(todos)
+                )
+            )
+
+            for task in completed_tasks:
+                print("\t {}".format(task.get("title")))
+
+
+if __name__ == "__main__":
+    main()
