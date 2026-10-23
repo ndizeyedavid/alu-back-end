@@ -1,6 +1,6 @@
 
 #!/usr/bin/python3
-"""Gather TODO list progress for a single employee."""
+# Gather TODO list progress for a single employee.
 
 import sys
 
@@ -8,7 +8,7 @@ import requests
 
 
 def main():
-    """Display an employee's completed TODO tasks."""
+    """ Display an employee's completed TODO tasks."""
     employee_id = int(sys.argv[1])
 
     response = requests.get(
