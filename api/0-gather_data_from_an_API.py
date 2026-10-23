@@ -1,6 +1,6 @@
 
 #!/usr/bin/python3
-# Gather TODO list progress for a single employee.
+"""Gather TODO list progress for a single employee."""
 
 import sys
 
