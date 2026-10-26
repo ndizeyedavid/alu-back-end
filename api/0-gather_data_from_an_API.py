@@ -1,10 +1,9 @@
-
 #!/usr/bin/python3
 """Gather TODO list progress for a single employee."""
 
-import sys
-
 import requests
+
+import sys
 
 
 def main():
