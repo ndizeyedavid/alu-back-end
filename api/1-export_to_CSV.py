@@ -5,6 +5,7 @@ import csv
 import requests
 import sys
 
+
 def main():
     """Fetch employee todos and write them to a CSV file."""
     employee_id = int(sys.argv[1])

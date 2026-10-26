@@ -5,6 +5,7 @@ import json
 import requests
 import sys
 
+
 def main():
     """Fetch employee todos and write them to a JSON file."""
     employee_id = int(sys.argv[1])
