@@ -2,10 +2,8 @@
 """Export an employee's TODO list to a CSV file."""
 
 import csv
-import sys
-
 import requests
-
+import sys
 
 def main():
     """Fetch employee todos and write them to a CSV file."""

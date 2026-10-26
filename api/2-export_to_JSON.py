@@ -2,10 +2,8 @@
 """Export an employee's TODO list to a JSON file."""
 
 import json
-import sys
-
 import requests
-
+import sys
 
 def main():
     """Fetch employee todos and write them to a JSON file."""
